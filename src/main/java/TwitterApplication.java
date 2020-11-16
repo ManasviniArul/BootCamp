@@ -1,10 +1,7 @@
 import java.util.List;
 import java.util.Scanner;
 
-import twitter4j.Status;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
+import twitter4j.*;
 
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -14,10 +11,14 @@ public class  TwitterApplication {
 
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey(" ")
+                /*.setOAuthConsumerKey(" ")
                 .setOAuthConsumerSecret(" ")
                 .setOAuthAccessToken(" ")
-                .setOAuthAccessTokenSecret(" ");
+                .setOAuthAccessTokenSecret(" ");*/
+                .setOAuthConsumerKey("gwUqzahiPaPoE3ouUg6xgzDwe")
+                .setOAuthConsumerSecret("KxCIGmCWhTlNFxYX97bso1RXKsG0A34EhMHS0HMZNnKdOANAV1")
+                .setOAuthAccessToken("1326757110621773824-XzgFjeAGngLNYL8QqpAjR2KZmUxiIS")
+                .setOAuthAccessTokenSecret("z2f27WEZ0z1DEBc5akJEnnE08j9EUEna775yHcUz6eyPY");
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
 
@@ -25,8 +26,11 @@ public class  TwitterApplication {
 
     }
 
-    public void createTweet(Twitter twitter, String tweet) throws TwitterException {
+    public void createTweet(Twitter twitter) throws TwitterException {
 
+        Scanner s= new Scanner(System.in);
+        System.out.println("Enter tweet to be posted :");
+        String tweet = s.nextLine();
         Status status = twitter.updateStatus(tweet);
         System.out.println("tweet posted");
     }
@@ -38,16 +42,69 @@ public class  TwitterApplication {
         }
     }
 
-    public static void main(String args[]) throws TwitterException {
+    public void directMessage(Twitter twitter) throws TwitterException {
 
         Scanner s= new Scanner(System.in);
-        System.out.println("Enter tweet to be posted :");
-        String tweet = s.nextLine();
+        System.out.println("Enter recipient twitter id : ");
+        String id = s.nextLine();
+        System.out.println("Enter message to be sent : ");
+        String msg = s.nextLine();
+
+        DirectMessage message=twitter.sendDirectMessage(id,msg);
+        //System.out.println(" Message sent to ");
+        System.out.println("Sent: " +message.getText() + " to @" + message.getRecipientId());
+    }
+
+    public void getOneTimeLine(Twitter twitter) throws TwitterException {
+
+        Scanner s= new Scanner(System.in);
+        System.out.println("Enter recipient twitter id : ");
+        String id = s.nextLine();
+
+        List<Status> status = twitter.getUserTimeline(id);
+        for (Status st : status) {
+            System.out.println(st.getUser().getName() + "------" + st.getText()+"\n");
+
+        }
+
+    }
+
+    public static void main(String args[]) throws TwitterException {
+
         TwitterApplication t=new TwitterApplication();
         Twitter obj = t.getTwitterinstance();
 
-        t.createTweet(obj, tweet);
-        t.getTimeline(obj);
+        System.out.println("What do you want to do in Twitter : \n1. post tweet \n2. send DM \n3. get home timeline "+
+                "\n4. get a single user's timeline");
+        Scanner s=new Scanner(System.in);
+        int option=s.nextInt();
+
+        switch(option) {
+            case 1:
+            {
+                t.createTweet(obj);
+                break;
+            }
+            case 2:
+            {
+                t.directMessage(obj);
+                break;
+            }
+            case 3:
+            {
+                t.getTimeline(obj);
+                break;
+            }
+            case 4:
+            {
+                t.getOneTimeLine(obj);
+                break;
+            }
+
+
+        }
+
+
     }
 
 
