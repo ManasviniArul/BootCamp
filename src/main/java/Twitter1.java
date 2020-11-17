@@ -19,7 +19,8 @@ public class  Twitter1 {
     void getTimeline() throws TwitterException {
 
         Twitter twitter=TwitterFactory.getSingleton();
-        List<Status> statuses = twitter.getHomeTimeline();
+        Paging page = new Paging(1,5);
+        List<Status> statuses = twitter.getHomeTimeline(page);
         for (Status st : statuses) {
             System.out.println(st.getUser().getName() + "------>" + st.getText()+"\n");
         }

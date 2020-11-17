@@ -33,6 +33,7 @@ public class  TwitterApplication {
     }
 
     void getTimeline(Twitter twitter) throws TwitterException {
+
         List<Status> statuses = twitter.getHomeTimeline();
         for (Status st : statuses) {
             System.out.println(st.getUser().getName() + "------" + st.getText()+"\n");
