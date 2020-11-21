@@ -1,13 +1,13 @@
+package twitterApi;
 
-package twitter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TwitterMain {
+public class Main {
 
     public static void main(String[] args) {
-        SpringApplication.run(TwitterMain.class, args);
+        SpringApplication.run(Main.class, args);
     }
 
 }
