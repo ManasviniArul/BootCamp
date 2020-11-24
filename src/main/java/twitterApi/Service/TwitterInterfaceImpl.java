@@ -1,5 +1,7 @@
 package twitterApi.Service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -9,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TwitterInterfaceImpl implements TwitterInterface {
+
+    Logger logger = LoggerFactory.getLogger(TwitterInterfaceImpl.class);
 
     Twitter twitter = TwitterFactory.getSingleton();
 
@@ -28,8 +32,15 @@ public class TwitterInterfaceImpl implements TwitterInterface {
 
     public String post(String tweet) throws TwitterException {
 
-        twitter.updateStatus(tweet);
-        return "tweeted";
+        try {
+            twitter.updateStatus(tweet);
+            return "tweeted";
+        }
+        catch(TwitterException e) {
+            logger.error("duplicate msg not accepted");
+            e.printStackTrace();
+            return "error";
+        }
     }
 }
 

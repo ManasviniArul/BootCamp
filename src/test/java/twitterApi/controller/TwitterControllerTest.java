@@ -3,8 +3,10 @@ package twitterApi.controller;
 import org.easymock.EasyMockRunner;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import twitter4j.TwitterException;
 import twitterApi.Service.TwitterInterface;
 import twitterApi.Service.TwitterService;
@@ -13,7 +15,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.easymock.EasyMock.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
 
 
 @RunWith(EasyMockRunner.class)
