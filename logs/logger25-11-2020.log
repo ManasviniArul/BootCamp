@@ -1,0 +1,8 @@
+[INFO] 2020-11-25 09:39:08,870 twitterApi.Main main - APP started
+[INFO] 2020-11-25 09:39:20,089 twitterApi.controller.TwitterController getTimeline - running successfully !!
+[INFO] 2020-11-25 09:39:29,447 twitterApi.controller.TwitterController postTweet - post tweet method is called
+[INFO] 2020-11-25 09:40:27,272 twitterApi.Main main - APP started
+[WARN] 2020-11-25 09:40:40,307 twitterApi.controller.TwitterController postTweet - post tweet method is called
+[INFO] 2020-11-25 09:40:45,393 twitterApi.controller.TwitterController getTimeline - running successfully !!
+[INFO] 2020-11-25 09:44:10,906 twitterApi.Main main - APP started
+[INFO] 2020-11-25 09:44:22,234 twitterApi.controller.TwitterController getTimeline - running successfully !!
