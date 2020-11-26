@@ -10,9 +10,9 @@ import java.util.List;
 
 public class TwitterInterfaceImpl implements TwitterInterface {
 
-    Twitter twitter = TwitterFactory.getSingleton();
+    public TwitterInterfaceImpl() {}
 
-    public List<String> get() throws TwitterException {
+    public List<String> get(Twitter twitter) throws TwitterException {
 
         List<String> temp = new ArrayList<>();
         List<Status> s = twitter.getHomeTimeline();
@@ -26,9 +26,9 @@ public class TwitterInterfaceImpl implements TwitterInterface {
 
 
 
-    public String post(String tweet) throws TwitterException {
+    public String post(Twitter twitter, String tweet) throws TwitterException {
 
-        twitter.updateStatus(tweet);
+       twitter.updateStatus(tweet);
         return "tweeted";
     }
 }
