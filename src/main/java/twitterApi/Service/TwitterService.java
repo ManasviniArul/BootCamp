@@ -4,19 +4,9 @@ import twitter4j.TwitterException;
 
 import java.util.List;
 
-public class TwitterService {
+public interface TwitterService {
 
-    TwitterInterface t = new TwitterInterfaceImpl();
+    String postMessage(String msg) throws TwitterException;
 
-    public String postMessage(String msg) throws TwitterException {
-
-        return t.post(msg);
-    }
-
-    public List<String> getFeed() throws TwitterException {
-
-        return t.get();
-    }
-
-
+    List<String> getFeed() throws TwitterException;
 }

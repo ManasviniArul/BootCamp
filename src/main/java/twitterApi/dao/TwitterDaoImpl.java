@@ -1,4 +1,4 @@
-package twitterApi.Service;
+package twitterApi.dao;
 
 import twitter4j.Status;
 import twitter4j.Twitter;
@@ -8,7 +8,7 @@ import twitter4j.TwitterFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TwitterInterfaceImpl implements TwitterInterface {
+public class TwitterDaoImpl implements TwitterDao {
 
     Twitter twitter = TwitterFactory.getSingleton();
 

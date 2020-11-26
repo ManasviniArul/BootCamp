@@ -1,19 +1,19 @@
-package twitterApi.controller;
+package twitterApi.resource;
 
 import org.springframework.web.bind.annotation.*;
 import twitter4j.TwitterException;
-import twitterApi.Service.TwitterService;
+import twitterApi.Service.TwitterServiceImpl;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/Twitter")
-public class TwitterController {
+public class TwitterResource {
 
 
     //Twitter twitter = TwitterFactory.getSingleton();
 
-     TwitterService t = new TwitterService();
+     TwitterServiceImpl t = new TwitterServiceImpl();
 
     @GetMapping("/TimeLine")
     public List<String> getTimeline() throws TwitterException{
