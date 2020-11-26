@@ -1,1 +1,1 @@
-This branch was created for **_testing the twitter api_** code. This code is used to retrieve the home timeline from twitter and for posting tweets - all from java code.
+This branch was created for learning and trying the logging steps. I also tried rolling file appender to store logs in date basis.
