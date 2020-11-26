@@ -3,6 +3,7 @@ package twitterApi.controller;
 import org.springframework.web.bind.annotation.*;
 import twitter4j.TwitterException;
 import twitterApi.Service.TwitterService;
+import twitterApi.model.TwitterModel;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class TwitterController {
      TwitterService t = new TwitterService();
 
     @GetMapping("/TimeLine")
-    public List<String> getTimeline() throws TwitterException{
+    public List<TwitterModel> getTimeline() throws TwitterException{
 
          return t.getFeed();
         //System.out.println("doneee");
