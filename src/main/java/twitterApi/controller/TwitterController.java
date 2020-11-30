@@ -5,6 +5,7 @@ import twitter4j.TwitterException;
 import twitterApi.Service.TwitterService;
 import twitterApi.model.TwitterModel;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -28,8 +29,26 @@ public class TwitterController {
     public String postTweet(@PathVariable(value = "tweet") String tweet) throws TwitterException {
 
         return t.postMessage(tweet);
+    }
 
+    @GetMapping("/sort")
+    public List<TwitterModel> filterTimeline() throws TwitterException{
 
+        return t.timeline();
+        //System.out.println("doneee");
+
+    }
+
+    @GetMapping("/map")
+    public List<String> mapTimeline() throws TwitterException {
+
+        return t.map();
+    }
+
+    @PostMapping("/hash")
+    public HashMap<String, TwitterModel> hashTweet(@RequestBody List<TwitterModel> twitterModel) throws TwitterException {
+
+        return t.post(twitterModel);
     }
 }
 

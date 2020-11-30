@@ -20,13 +20,8 @@ public class TwitterInterfaceImpl implements TwitterInterface {
 
         for(Status st:s) {
 
-            TwitterModel t = new TwitterModel();
+            TwitterModel t = new TwitterModel(st.getText(), st.getUser().getName(), st.getUser().getScreenName(), st.getUser().getProfileImageURL(), st.getCreatedAt());
 
-            t.setId(st.getUser().getScreenName());
-            t.setName(st.getUser().getName());
-            t.setProfileUrl(st.getUser().getProfileImageURL());
-            t.setInfo((st.getText()));
-            t.setCreateDate(st.getCreatedAt());
             temp.add(t);
         }
         return temp;
