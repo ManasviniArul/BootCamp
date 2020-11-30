@@ -1,0 +1,1 @@
+This branch was created for **_trying out the stream methods_** code. This code is used to retrieve the home timeline from twitter and performing methods like sort, filter, map etc. on the data obtained from twitter
