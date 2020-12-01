@@ -1,10 +1,12 @@
 package twitterApi.controller;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 import twitter4j.TwitterException;
 import twitterApi.Service.TwitterService;
 import twitterApi.model.TwitterModel;
 
+import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,12 +17,15 @@ public class TwitterController {
 
     //Twitter twitter = TwitterFactory.getSingleton();
 
-     TwitterService t = new TwitterService();
+    @Inject
+    TwitterService t;
 
     @GetMapping("/TimeLine")
+    @Cacheable(value = "timelineInfo")
     public List<TwitterModel> getTimeline() throws TwitterException{
 
-         return t.getFeed();
+        System.out.println("timeline info");
+        return t.getFeed();
         //System.out.println("doneee");
 
     }
@@ -31,24 +36,6 @@ public class TwitterController {
         return t.postMessage(tweet);
     }
 
-    @GetMapping("/sort")
-    public List<TwitterModel> filterTimeline() throws TwitterException{
 
-        return t.timeline();
-        //System.out.println("doneee");
-
-    }
-
-    @GetMapping("/map")
-    public List<String> mapTimeline() throws TwitterException {
-
-        return t.map();
-    }
-
-    @PostMapping("/hash")
-    public HashMap<String, TwitterModel> hashTweet(@RequestBody List<TwitterModel> twitterModel) throws TwitterException {
-
-        return t.post(twitterModel);
-    }
 }
 

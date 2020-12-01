@@ -1,5 +1,6 @@
 package twitterApi.Service;
 
+import org.springframework.stereotype.Component;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -9,6 +10,7 @@ import twitterApi.model.TwitterModel;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class TwitterInterfaceImpl implements TwitterInterface {
 
     Twitter twitter = TwitterFactory.getSingleton();
@@ -33,7 +35,7 @@ public class TwitterInterfaceImpl implements TwitterInterface {
     public String post(String tweet) throws TwitterException {
 
         twitter.updateStatus(tweet);
-        return "tweeted";
+        return "tweeted ";
     }
 }
 
