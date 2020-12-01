@@ -9,7 +9,7 @@ import twitterApi.Service.TwitterInterfaceImpl1;
 
 @Configuration
 public class Config {
-    @Bean
+   /* @Bean
     @Primary
     public TwitterInterfaceImpl twitterInterfaceImpl(){
         return new TwitterInterfaceImpl();
@@ -17,6 +17,6 @@ public class Config {
     @Bean
     public TwitterInterfaceImpl1 twitterInterfaceImpl1(){
         return new TwitterInterfaceImpl1();
-    }
+    }*/
 }
 

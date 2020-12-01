@@ -10,7 +10,7 @@ import twitterApi.model.TwitterModel;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Component("TWITTER")
 public class TwitterInterfaceImpl1 implements TwitterInterface{
 
     Twitter twitter = TwitterFactory.getSingleton();
