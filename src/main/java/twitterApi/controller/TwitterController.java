@@ -1,5 +1,6 @@
 package twitterApi.controller;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 import twitter4j.TwitterException;
@@ -14,14 +15,12 @@ import java.util.List;
 @RequestMapping("/Twitter")
 public class TwitterController {
 
-
-    //Twitter twitter = TwitterFactory.getSingleton();
-
     @Inject
     TwitterService t;
 
     @GetMapping("/TimeLine")
     @Cacheable(value = "timelineInfo")
+    //@CacheEvict(value = "timelineInfo")
     public List<TwitterModel> getTimeline() throws TwitterException{
 
         System.out.println("timeline info");

@@ -26,17 +26,24 @@ public class Config implements CachingConfigurer {
         cacheManager.setCaches(Arrays.asList(guavaCache));
         return cacheManager;
     }
+
     @Override
     public CacheResolver cacheResolver() {
+
         return null;
     }
+
     @Override
     public KeyGenerator keyGenerator() {
+
         return new SimpleKeyGenerator();
     }
+
     @Override
     public CacheErrorHandler errorHandler() {
+
         return null;
     }
+
 }
 
