@@ -21,12 +21,11 @@ public class TwitterController {
     TwitterService t;
 
     @GetMapping("/TimeLine")
-    @Cacheable(value = "timelineInfo")
+
     public List<TwitterModel> getTimeline() throws TwitterException{
 
-        System.out.println("timeline info");
         return t.getFeed();
-        //System.out.println("doneee");
+
 
     }
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class TwitterInterfaceImpl implements TwitterInterface {
+public class TwitterInterfaceImpl1 implements TwitterInterface{
 
     Twitter twitter = TwitterFactory.getSingleton();
 
@@ -35,7 +35,8 @@ public class TwitterInterfaceImpl implements TwitterInterface {
     public String post(String tweet) throws TwitterException {
 
         twitter.updateStatus(tweet);
-        return "tweeted from class 1";
+        return "tweeted from class 2";
     }
 }
+
 
