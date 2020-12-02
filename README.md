@@ -1,0 +1,1 @@
+This branch was created for **_trying caching_** for the twitter API code. This code is used to retrieve the home timeline from twitter and storing it in local cache for specified time and also deleting the contents of cache.
