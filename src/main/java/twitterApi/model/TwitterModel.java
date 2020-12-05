@@ -8,14 +8,14 @@ public class TwitterModel {
     private String name;
     private String id;
     private String profileUrl;
-    private Date createDate;
+    private String createDate;
 
 
     public TwitterModel() {
 
     }
 
-    public TwitterModel(String info, String name, String id, String profileUrl, Date createDate) {
+    public TwitterModel(String info, String name, String id, String profileUrl, String createDate) {
         this.info = info;
         this.name = name;
         this.id = id;
@@ -55,11 +55,11 @@ public class TwitterModel {
         this.profileUrl = profileUrl;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 

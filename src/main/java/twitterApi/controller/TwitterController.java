@@ -19,8 +19,6 @@ public class TwitterController {
     TwitterService t;
 
     @GetMapping("/TimeLine")
-    @Cacheable(value = "timelineInfo")
-    //@CacheEvict(value = "timelineInfo")
     public List<TwitterModel> getTimeline() throws TwitterException{
 
         System.out.println("timeline info");
