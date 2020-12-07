@@ -7,6 +7,7 @@ public class TwitterModel {
     private String info;
     private String name;
     private String id;
+    private String screenName;
     private String profileUrl;
     private String createDate;
 
@@ -15,10 +16,11 @@ public class TwitterModel {
 
     }
 
-    public TwitterModel(String info, String name, String id, String profileUrl, String createDate) {
+    public TwitterModel(String info, String name, String id, String screenName,String profileUrl, String createDate) {
         this.info = info;
         this.name = name;
         this.id = id;
+        this.screenName=screenName;
         this.profileUrl = profileUrl;
         this.createDate = createDate;
     }
@@ -47,6 +49,14 @@ public class TwitterModel {
         this.id = id;
     }
 
+    public String getScreenName() {
+        return screenName;
+    }
+
+    public void setScreenName(String screenName) {
+        this.screenName = screenName;
+    }
+
     public String getProfileUrl() {
         return profileUrl;
     }
@@ -69,6 +79,7 @@ public class TwitterModel {
                 "info='" + info + '\'' +
                 ", name='" + name + '\'' +
                 ", id='" + id + '\'' +
+                ", screen name='" + screenName + '\'' +
                 ", profileUrl='" + profileUrl + '\'' +
                 ", createDate=" + createDate +
                 '}';
